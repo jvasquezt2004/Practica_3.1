@@ -10,6 +10,41 @@ header {
   background-color: #ffffff;
   padding: 20px 0;
   border-bottom: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-left {
+  flex: 1;
+  align-items: flex-start;
+  padding-left: 20px;
+  border-right: 1px solid #000;
+}
+
+.header-center {
+  flex: 2;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.header-right {
+  flex: 1;
+  align-items: flex-end;
+  padding-right: 20px;
+}
+
+.logo {
+  width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+  height: auto;
 }
 
 header h1 {
@@ -38,17 +73,26 @@ nav ul {
   margin: 0;
   display: flex;
   justify-content: center;
+  border: 1px solid #000;
+  border-width: 0 0 1px 0;
 }
 
 nav li {
   padding: 15px 25px;
   font-weight: bold;
   cursor: pointer;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  flex: 1;
+  text-align: center;
 }
 
-nav .selected {
-  text-decoration: underline;
-  color: #000;
+nav li:first-child {
+  border-left: none;
+}
+
+nav li:last-child {
+  border-right: none;
 }
 
 main {
@@ -56,21 +100,62 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #000;
 }
 
 .product {
-  border: 1px solid #000;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   width: 30%;
-  margin: 10px;
+  margin: 0;
   padding: 20px;
   box-sizing: border-box;
   background-color: #ffffff;
+  text-align: left;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-top: 1px solid #000;
+  margin-top: 15px;
 }
 
 .product h2 {
   margin-top: 0;
+  font-size: 1.5em;
 }
 
 .product p {
   margin-bottom: 0;
+  font-size: 1em;
+  color: #555;
+}
+
+/* Diseño responsivo para tabletas */
+@media (max-width: 768px) {
+  .product {
+    width: 45%;
+  }
+}
+
+/* Diseño responsivo para móviles */
+@media (max-width: 480px) {
+  .product {
+    width: 100%;
+  }
+
+  .header-left,
+  .header-right {
+    display: none;
+  }
+
+  .header-center {
+    flex: 1;
+    border: none;
+  }
 }
